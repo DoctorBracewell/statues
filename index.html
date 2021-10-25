@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module" defer src="index.js"></script>
+
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        font-size: 1.05em;
+      }
+      .text p,
+      li {
+        max-width: clamp(350px, 40vw, 600px);
+      }
+      .flex {
+        display: flex;
+        flex-direction: column;
+      }
+      .flex * {
+        margin: 10px auto;
+      }
+      input[type="submit"] {
+        padding: 20px;
+        font-size: 30px;
+      }
+      .output-box {
+        border: 3px solid black;
+        padding: 20px;
+        margin: 10px clamp(350px, 30vw, 350px);
+        word-break: break-all;
+      }
+      .progress {
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        display: none;
+        align-items: center;
+      }
+      .blur {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0.5;
+        background-color: black;
+      }
+      .info-box {
+        width: 50vw;
+        height: 30vh;
+        background-color: white;
+        border-radius: 10px;
+        margin: auto;
+        opacity: 1;
+        z-index: 500;
+        display: flex;
+        flex-direction: column;
+        font-family: "Open Sans", sans-serif;
+        justify-content: center;
+      }
+      .info {
+        margin: 10px auto;
+        font-size: 2em;
+      }
+      .info-box h3 {
+        margin: 10px auto;
+      }
+    </style>
+
+    <title>BodyPillow Generator</title>
+  </head>
+  <body>
+    <div class="progress">
+      <div class="blur"></div>
+      <div class="info-box">
+        <h3>This will take up to 5 minutes to complete, please be patient!</h3>
+        <p class="info"></p>
+      </div>
+    </div>
+
+    <div class="flex flex-column">
+      <h1>Important Information!</h1>
+      <div class="text">
+        <p>
+          Welcome to DrBracewell's BodyPillow Generator™. If you have ever
+          wanted an in-game model of player, you're in the right place!
+        </p>
+        <p>
+          Just follow the instructions below to generate a BodyPillow ingame:
+        </p>
+        <ul>
+          <li>Upload a <b>classic-arm-style</b> (4px arm width) below.</li>
+          <li>
+            Give your pillow a name (or not). Colour codes are supported with
+            the & symbol
+          </li>
+          <li>
+            Hit generate, and be patient! Due to rate limits, it will take
+            <b>minimum of 2m</b> to generate your pillow.
+          </li>
+          <li>
+            If you get an error, something might be messing up with the skin
+            API. Give it a while and try again.
+          </li>
+          <li>
+            When you get your command, just head ingame and paste it into a
+            command block! If you want one on the build server and don't have
+            CMB access, ask a CMD to input the command and power the command
+            block.
+          </li>
+          <li>
+            Your BodyPillow will unfortunately not have 3D layers from the
+            original skin - any layers on the original will be pasted onto the
+            inner layer.
+          </li>
+        </ul>
+      </div>
+
+      <form display="flex">
+        <input type="file" name="skin" id="skin" accept="image/png" />
+        <br />
+        <input
+          name="name"
+          id="name"
+          type="text"
+          placeholder="Name above pillow."
+        />
+        <br />
+        <input type="submit" value="Generate!" />
+      </form>
+
+      <div class="output-box">
+        <h2>Triple click below to highlight all:</h2>
+        <p id="output"></p>
+      </div>
+    </div>
+  </body>
+</html>
