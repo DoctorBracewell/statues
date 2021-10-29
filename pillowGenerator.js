@@ -85,13 +85,15 @@ function createCubeArray({ body, leftArm, rightArm, head }, size) {
 
 // Recursive function to create the riding command
 function walkArray(arr, fullArr, size) {
+  const normalSized = size === "normal";
   if (arr.length === 0) return "";
 
   return (
-    `Riding:{id:\"FallingSand\",Block:command_block,Data:0,TileEntityData:{Command:\"${calculateSummonCommand(
+    `"Riding:{id:\"FallingSand\",Block:command_block,Data:0,TileEntityData:{Command:\"${calculateSummonCommand(
       arr[0],
       fullArr,
-      size
+      size,
+      normalSized
     )}\"},Time:1,DropItem:0,` +
     walkArray(arr.slice(1), fullArr, size) +
     "}"
@@ -99,8 +101,7 @@ function walkArray(arr, fullArr, size) {
 }
 
 // Use the co-ordinates to calculate the offset the stand needs to be summoned at
-function calculateSummonCommand(cubeData, cubeArray, size) {
-  const normalSized = size === "normal";
+function calculateSummonCommand(cubeData, cubeArray, size, normalSized) {
   const index = cubeArray.indexOf(cubeData);
 
   const sizes = {
@@ -126,7 +127,9 @@ function calculateSummonCommand(cubeData, cubeArray, size) {
     cubeData?.name
       ? `CustomName:\\"${cubeData.name}\\",CustomNameVisible:1b,`
       : ""
-  }NoGravity:1b,Rotation:[180f],Invisible:1b,Invulnerable:1b,Pose:{RightArm:[-45.0f,45.0f,0.0f]},ShowArms:1b${
+  }NoGravity:1b${
+    normalSized ? "" : ",Rotation:[180f]"
+  },Invisible:1b,Invulnerable:1b,Pose:{RightArm:[-45.0f,45.0f,0.0f]},ShowArms:1b${
     cubeData?.skin?.id
       ? `,Equipment:[${
           normalSized ? "" : "{},{},{},{},"
