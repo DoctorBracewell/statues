@@ -123,6 +123,7 @@
 
       <form display="flex">
         <input type="file" name="skin" id="skin" accept="image/png" />
+        <input type="text" name="username" id="username" />
         <br />
         <input
           name="name"
@@ -131,6 +132,11 @@
           placeholder="Name above pillow."
         />
         <br />
+         
+        <input type="radio" id="normal" name="size" value="normal" checked />  
+        <label for="normal">Normal</label><br />
+          <input type="radio" id="giant" name="size" value="giant" />  
+        <label for="giant">GIANT</label><br />
         <input type="submit" value="Generate!" />
       </form>
 
