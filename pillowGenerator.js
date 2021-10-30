@@ -89,7 +89,7 @@ function walkArray(arr, fullArr, size) {
   if (arr.length === 0) return "";
 
   return (
-    `"Riding:{id:\"FallingSand\",Block:command_block,Data:0,TileEntityData:{Command:\"${calculateSummonCommand(
+    `Riding:{id:\"FallingSand\",Block:command_block,Data:0,TileEntityData:{Command:\"${calculateSummonCommand(
       arr[0],
       fullArr,
       size,
