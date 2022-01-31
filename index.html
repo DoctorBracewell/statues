@@ -1,78 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script type="module" defer src="index.js"></script>
-
-    <style>
-      html,
-      body {
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        font-size: 1.05em;
-      }
-      .text p,
-      li {
-        max-width: clamp(350px, 40vw, 600px);
-      }
-      .flex {
-        display: flex;
-        flex-direction: column;
-      }
-      .flex * {
-        margin: 10px auto;
-      }
-      input[type="submit"] {
-        padding: 20px;
-        font-size: 30px;
-      }
-      .output-box {
-        border: 3px solid black;
-        padding: 20px;
-        margin: 10px clamp(350px, 30vw, 350px);
-        word-break: break-all;
-      }
-      .progress {
-        height: 100vh;
-        width: 100vw;
-        position: absolute;
-        display: none;
-        align-items: center;
-      }
-      .blur {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        opacity: 0.5;
-        background-color: black;
-      }
-      .info-box {
-        width: 50vw;
-        height: 30vh;
-        background-color: white;
-        border-radius: 10px;
-        margin: auto;
-        opacity: 1;
-        z-index: 500;
-        display: flex;
-        flex-direction: column;
-        font-family: "Open Sans", sans-serif;
-        justify-content: center;
-      }
-      .info {
-        margin: 10px auto;
-        font-size: 2em;
-      }
-      .info-box h3 {
-        margin: 10px auto;
-      }
-    </style>
-
     <title>BodyPillow Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+    <meta
+      name="description"
+      content="Create Minecraft statues/bodypillows ingame from using armor stands and custom heads!"
+    />
+
+    <script type="module" src="./src/index.js"></script>
   </head>
   <body>
     <div class="progress">
@@ -123,7 +62,12 @@
 
       <form display="flex">
         <input type="file" name="skin" id="skin" accept="image/png" />
-        <input type="text" name="username" id="username" placeholder="Or put a username here"/>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Or put a username here"
+        />
         <br />
         <input
           name="name"

@@ -1,7 +1,7 @@
 import { generateCommand } from "./pillowGenerator.js";
 
 // Set up dimensions for all the skin cubes (in order)
-import { skins } from "./skinData.js";
+import { skins } from "../src/skins/skinData.js";
 
 export function createSkins(imageData) {
   // Show progress
