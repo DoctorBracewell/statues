@@ -1,6 +1,7 @@
 // Set up dimensions for all the skin cubes (in order)
 import { bodyPartsData } from "./bodyPartsData.js";
 
+import { sleep } from "../utils";
 import { PROGRESS_ELEMENT } from "../constants.js";
 
 // Create canvas and context to draw on
@@ -123,6 +124,8 @@ async function generateHeads(bodyPartsSkins) {
         }
       ).then((res) => res.json());
 
+      await sleep(4000);
+
       // Save in object
       heads.push({
         value: apiResult.data.texture.value,
@@ -154,9 +157,5 @@ export async function createSkins(imageData) {
   const bodyPartsSkins = mapHeads(layeredSkin);
   const bodyPartsHeads = await generateHeads(bodyPartsSkins);
 
-  console.log(bodyPartsHeads);
-
-  // // Create pillow with skin data
-  // document.querySelector(".info").textContent = "Generating command...";
-  // generateCommand(headsData);
+  return bodyPartsHeads;
 }

@@ -13,7 +13,9 @@ document.querySelector("form").addEventListener("submit", async (event) => {
     PROGRESS_ELEMENT.textContent = "Loading initial skin file...";
 
     const skinData = await getSkinData();
-    createSkins(skinData);
+    const skins = createSkins(skinData);
+
+    
   } catch (error) {
     document.querySelector(".progress").style.display = "none";
 
