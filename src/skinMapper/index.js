@@ -100,7 +100,7 @@ async function generateHeads(bodyPartsSkins) {
     const heads = [];
 
     // Map over all the heads in the body part
-    for (const skin of skins) {
+    for (const skin of skins.slice(0, 1)) {
       // Update tracker
       PROGRESS_ELEMENT.setText(`Generating skin ${indexTracker} out of 26...`);
       indexTracker++;
@@ -144,9 +144,7 @@ async function generateHeads(bodyPartsSkins) {
 
 export async function createSkins(imageData) {
   // Create Image object from skin
-  console.log(imageData);
   const skin = await createImage(imageData);
-  console.log(skin);
 
   // Check skin dimensions and
   if (![skin.height, skin.width].every((dim) => dim === 64))
