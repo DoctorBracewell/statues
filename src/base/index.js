@@ -21,7 +21,7 @@ async function getMojangSkinData(username) {
     (res) => res.json()
   );
 
-  return data;
+  return `data:image/png;base64,${data}`;
 }
 
 export async function getSkinData() {

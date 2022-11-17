@@ -9,13 +9,13 @@ document.querySelector("form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
   try {
-    PROGRESS_ELEMENT.style.display = "flex";
-    PROGRESS_ELEMENT.textContent = "Loading initial skin file...";
+    PROGRESS_ELEMENT.show();
+    PROGRESS_ELEMENT.setText("Loading initial skin file...");
 
     const skinData = await getSkinData();
     const skins = createSkins(skinData);
 
-    
+    // console.log(skins);
   } catch (error) {
     document.querySelector(".progress").style.display = "none";
 
